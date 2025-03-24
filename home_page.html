@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Spam Detection</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f5f9;
+            color: #333;
+            overflow-x: hidden;
+            height: 100vh;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 15px 30px;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar a {
+            color: #333;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px 20px;
+            margin-right: 10px;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .navbar a:hover {
+            background: #4CAF50;
+            color: white;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            position: relative;
+            background: linear-gradient(135deg, #e3fdfd, #ffe6fa);
+            overflow: hidden;
+            animation: gradientAnimation 15s ease infinite;
+        }
+
+        /* Gradient Animation */
+        @keyframes gradientAnimation {
+            0% { background: linear-gradient(135deg, #e3fdfd, #ffe6fa); }
+            50% { background: linear-gradient(135deg, #ffcccb, #e6f7ff); }
+            100% { background: linear-gradient(135deg, #e3fdfd, #ffe6fa); }
+        }
+
+        .hero-content {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 30px 50px;
+            border-radius: 15px;
+            backdrop-filter: blur(15px);
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        /* Typing Animation */
+        .typing-text {
+            display: inline-block;
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #333;
+            border-right: 3px solid #4CAF50;
+            white-space: nowrap;
+            overflow: hidden;
+            width: 0;
+            animation: typing 3s steps(30, end) forwards, blink 0.7s infinite;
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blink {
+            50% { border-color: transparent; }
+        }
+
+        /* 3D Hover Button */
+        .cta-button {
+            margin-top: 20px;
+            padding: 15px 30px;
+            font-size: 18px;
+            background: #00796b;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s ease-in-out;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button:hover {
+            background: #004d40;
+            transform: translateY(-5px);
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Scroll Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: revealAnimation 1s forwards;
+        }
+
+        @keyframes revealAnimation {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Neon Border Animation */
+        .neon-border {
+            padding: 10px;
+            border: 2px solid #4CAF50;
+            border-radius: 10px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .neon-border:hover {
+            box-shadow: 0 0 15px #4CAF50;
+            transform: scale(1.05);
+        }
+
+        /* Cursor Glow Effect */
+        .cursor-glow {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: rgba(76, 175, 80, 0.6);
+            border-radius: 50%;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            transition: transform 0.1s linear;
+            box-shadow: 0 0 15px rgba(76, 175, 80, 0.8);
+        }
+
+        /* Particle Animation */
+        .particle {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: rgba(76, 175, 80, 0.5);
+            border-radius: 50%;
+            animation: floatUp 6s infinite linear;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0); opacity: 1; }
+            50% { transform: translateY(-50px); opacity: 0.6; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Cursor Glow Effect -->
+    <div class="cursor-glow"></div>
+
+    <!-- Navigation Bar -->
+   
+    <div class="navbar">
+        <a href="sign_up.html">sign up</a>
+        <a href="dashboard.html" class="neon-border">DashBoard</a>
+        <a href="home_page.html" class="neon-border">Home</a>
+        <a href="index.html" class="neon-border">Spam Detection Settings Page</a>
+        <a href="about.html" class="neon-border">About</a>
+        <a href="result.html" class="neon-border">Result</a>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="hero-content reveal">
+            <h1 class="typing-text">AI-Powered Spam Detection</h1>
+            <p class="reveal">Protect your inbox from unwanted emails using the latest AI technology!</p>
+            <button class="cta-button reveal" onclick="startDetection()">Start Detection</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 AI Spam Detection System | All Rights Reserved</p>
+    </footer>
+
+    <script>
+        // Cursor Glow Effect
+        const cursor = document.querySelector('.cursor-glow');
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+        });
+
+        // AI Particle Background Animation
+        function createParticles() {
+            for (let i = 0; i < 20; i++) {
+                let particle = document.createElement("div");
+                particle.classList.add("particle");
+                document.body.appendChild(particle);
+                let randomX = Math.random() * window.innerWidth;
+                let randomY = Math.random() * window.innerHeight;
+                let randomDuration = Math.random() * 5 + 3;
+                particle.style.left = `${randomX}px`;
+                particle.style.top = `${randomY}px`;
+                particle.style.animationDuration = `${randomDuration}s`;
+            }
+        }
+        createParticles();
+
+        // Start Detection Alert
+        function startDetection() {
+            alert('Starting spam detection...');
+        }
+    </script>
+
+</body>
+</html>
